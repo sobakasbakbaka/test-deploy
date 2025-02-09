@@ -13,10 +13,5 @@ jobs:
       - name: Checkout репозитория
         uses: actions/checkout@v3
 
-      - name: Тест ошибки
-        run: |
-          echo "💥 Ломаем CI/CD для теста!"
-          exit 1
-
       - name: Деплой в Render через API
         run: curl -X POST "https://api.render.com/deploy/srv-XXX?key=${{ secrets.RENDER_DEPLOY_KEY }}"
