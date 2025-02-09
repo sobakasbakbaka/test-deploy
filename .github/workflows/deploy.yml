@@ -13,8 +13,5 @@ jobs:
       - name: Checkout репозитория
         uses: actions/checkout@v3
 
-      - name: Проверка переменной
-        run: echo "API-ключ '${{ secrets.RENDER_DEPLOY_KEY }}'"
-
       - name: Деплой в Render через API
         run: curl -X POST "https://api.render.com/deploy/srv-cukd2han91rc73aqd19g?key=${{ secrets.RENDER_DEPLOY_KEY }}"
