@@ -3,6 +3,6 @@ import { createRoot } from "react-dom/client";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <div>Hello</div>
+    <div>Test Change</div>
   </StrictMode>
 );
