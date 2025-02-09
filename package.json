@@ -12,6 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@mantine/core": "^7.16.3",
+    "@mantine/hooks": "^7.16.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -19,6 +21,9 @@
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "postcss": "^8.5.1",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.7.3",
     "vite": "^6.0.11"
   }
