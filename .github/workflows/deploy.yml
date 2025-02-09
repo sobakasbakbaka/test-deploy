@@ -1,0 +1,26 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Render
+        run: echo "${{ secrets.RENDER_API_KEY }}" | docker login registry.render.com -u render --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t registry.render.com/my-app:latest .
+
+      - name: Push Docker image
+        run: docker push registry.render.com/my-app:latest
+
+      - name: Deploy to Render
+        run: curl -X POST "https://api.render.com/deploy/srv-XXX?key=${{ secrets.RENDER_DEPLOY_KEY }}"
