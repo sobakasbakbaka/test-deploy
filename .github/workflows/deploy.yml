@@ -10,17 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout репозитория
         uses: actions/checkout@v3
 
-      - name: Login to Render
-        run: echo "${{ secrets.RENDER_API_KEY }}" | docker login registry.render.com -u render --password-stdin
-
-      - name: Build Docker image
-        run: docker build -t registry.render.com/my-app:latest .
-
-      - name: Push Docker image
-        run: docker push registry.render.com/my-app:latest
-
-      - name: Deploy to Render
+      - name: Деплой в Render через API
         run: curl -X POST "https://api.render.com/deploy/srv-XXX?key=${{ secrets.RENDER_DEPLOY_KEY }}"
